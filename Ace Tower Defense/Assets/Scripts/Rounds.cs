@@ -4,7 +4,10 @@ using TMPro;
 public class Rounds : MonoBehaviour
 {
     public int startRound;
-    public int baloonsToPop;
+    public int currentRound;
+    public int endRound;
+    public int diesToDestroy;
+    public TextMeshProUGUI roundCounter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,7 +17,8 @@ public class Rounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(baloonsToPop <= 0)
+        roundCounter.text = "round: " + currentRound.ToString();
+        if(diesToDestroy <= 0)
         {
             AdvanceRound();
         }
@@ -22,6 +26,6 @@ public class Rounds : MonoBehaviour
     
     void AdvanceRound()
     {
-        startRound++;
+        currentRound++;
     }
 }
