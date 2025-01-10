@@ -5,6 +5,7 @@ public class ProjectileShooting : MonoBehaviour
     bool shoot;//Placeholder
 
     public Transform firePoint;
+    public GameObject bulletPrefab;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +20,7 @@ public class ProjectileShooting : MonoBehaviour
     {
         //shooting Logic
 
-
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
     }
 }

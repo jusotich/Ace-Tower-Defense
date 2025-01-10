@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TargetingSystem : MonoBehaviour
 {
-/*
+
    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            SetTarget(enemy);s
+            Transform.LookAt(enemy);
         }
 
 
@@ -17,5 +18,5 @@ public class TargetingSystem : MonoBehaviour
     {
         this.tergetEnemy = targetEnemy;
     }
-*/
+
 }
