@@ -25,16 +25,21 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
     }
+    public void SetNodes(Transform[] newNodes)
+    {
+        nodes = newNodes;
+        currentNodeIndex = 0; // Reset to start at the first node
+    }
     private void OnDrawGizmos()
     {
-        if (nodes == null || nodes.Length == 0) return;
+        if (nodes == null || nodes.Length < 2) return;
 
         Gizmos.color = Color.red;
-        for (int i = 0; i < nodes.Length; i++) 
+        for (int i = 0; i < nodes.Length - 1; i++)
         {
-            if (nodes[i] != null)
+            if (nodes[i] != null && nodes[i + 1] != null)
             {
-                Gizmos.DrawLine(nodes[i].position, nodes[i].position);
+                Gizmos.DrawLine(nodes[i].position, nodes[i + 1].position);
             }
         }
     }
