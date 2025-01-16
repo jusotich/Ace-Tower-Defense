@@ -1,26 +1,31 @@
 using UnityEngine;
 
-public class ProjectileShooting : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    bool shoot;//Placeholder
+    private Transform target;
 
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    [Header("Variabler")]
+    [SerializeField] private float bulletSpeed = 5f;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Referenser")]
+    [SerializeField] private Rigidbody2D rb;
+
+    private void FixedUpdate()
     {
-        if (shoot)
-        {
-            Shoot();
-        }
+        if(!target) return;
+
+        Vector2 direction = (target.position - transform.position).normalized;
+        rb.linearVelocity = direction * bulletSpeed;
     }
 
-    void Shoot()
+    public void SetTarget(Transform _target)
     {
-        //shooting Logic
-
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+        target = _target;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        
+    }
+
 }
