@@ -5,6 +5,7 @@ public class EnemyBehavior : MonoBehaviour
     public Transform[] nodes; //array of nodes (et in the Inspector)
     public float speed = 2f;
     private int currentNodeIndex = 0;
+    public Spwaner spwaner;
     // Update is called once per frame
     void Update()
     {
@@ -22,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
             if (currentNodeIndex >= nodes.Length)
             {
                 Destroy(gameObject);
+                spwaner.EnemyDied();
             }
         }
     }

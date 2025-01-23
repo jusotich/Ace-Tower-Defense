@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Spwaner : MonoBehaviour
 {
-    public float spawnRate = 1.0f;
-    public float timeBetweenWaves = 3.0f;
+    public float spawnRate;
 
     public int enemyCount;
 
@@ -14,6 +14,8 @@ public class Spwaner : MonoBehaviour
 
     bool waveIsDone = true;
 
+    private int currentEnemyOnScreen = 0;
+
     // Update is called once per frame
     void Update()
     {
@@ -22,13 +24,17 @@ public class Spwaner : MonoBehaviour
             StartCoroutine(waveSpawner());
         }
     }
-
+    public void EnemyDied()
+    {
+        currentEnemyOnScreen--;
+    }
     IEnumerator waveSpawner()
     {
         waveIsDone = false;
 
         for (int i = 0; i < enemyCount; i++) // Spawns a wave of enemies
         {
+            currentEnemyOnScreen++;
             // Instantiate the enemy
             GameObject enemyClone = Instantiate(enemy, transform.position, Quaternion.identity);
 
@@ -46,12 +52,19 @@ public class Spwaner : MonoBehaviour
             yield return new WaitForSeconds(spawnRate); // Delay between spawns
         }
 
+
         // Make waves progressively harder
         spawnRate = Mathf.Max(0.1f, spawnRate - 0.1f); // Clamp spawn rate to avoid going negative
         enemyCount += 3;
 
-        yield return new WaitForSeconds(timeBetweenWaves); // Delay between waves
+        if (currentEnemyOnScreen<=0)
+        {
+            waveIsDone = true;
 
-        waveIsDone = true;
+        }
+        else
+        {
+            Debug.Log("wave did not complet");
+        }
     }
 }
