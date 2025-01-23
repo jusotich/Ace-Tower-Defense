@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Variabler")]
     [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private int projectileDamage = 1;
 
     [Header("Referenser")]
     [SerializeField] private Rigidbody2D rb;
@@ -25,8 +26,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //Do damage to enemy
+        other.gameObject.GetComponent<EnemyBasklass>().TakeDamage(ProjectileDamage);
         Destroy(gameObject);
+        
     }
 
 }
