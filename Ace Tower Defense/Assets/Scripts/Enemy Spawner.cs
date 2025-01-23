@@ -1,20 +1,18 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Spwaner : MonoBehaviour
 {
     public float spawnRate;
-
     public int enemyCount;
-
     public GameObject enemy; // Prefab of the enemy
-
     public Transform[] nodes; // Path nodes to pass to enemies
-
     bool waveIsDone = true;
-
     private int currentEnemyOnScreen = 0;
+
+    public GameManager gameManager;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +20,16 @@ public class Spwaner : MonoBehaviour
         if (waveIsDone == true)
         {
             StartCoroutine(waveSpawner());
+        }
+
+        if (currentEnemyOnScreen <= 0)
+        {
+            waveIsDone = true;
+            gameManager.AdvanceRound();
+        }
+        else
+        {
+            Debug.Log("wave did not complet");
         }
     }
     public void EnemyDied()
@@ -56,15 +64,5 @@ public class Spwaner : MonoBehaviour
         // Make waves progressively harder
         spawnRate = Mathf.Max(0.1f, spawnRate - 0.1f); // Clamp spawn rate to avoid going negative
         enemyCount += 3;
-
-        if (currentEnemyOnScreen<=0)
-        {
-            waveIsDone = true;
-
-        }
-        else
-        {
-            Debug.Log("wave did not complet");
-        }
     }
 }

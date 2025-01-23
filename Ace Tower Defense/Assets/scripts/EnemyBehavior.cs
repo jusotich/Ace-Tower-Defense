@@ -22,8 +22,8 @@ public class EnemyBehavior : MonoBehaviour
             currentNodeIndex++;
             if (currentNodeIndex >= nodes.Length)
             {
-                Destroy(gameObject);
                 spwaner.EnemyDied();
+                Destroy(gameObject);
             }
         }
     }
