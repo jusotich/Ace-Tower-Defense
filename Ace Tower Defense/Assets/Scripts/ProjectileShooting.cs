@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        other.gameObject.GetComponent<EnemyBasklass>().TakeDamage(ProjectileDamage);
+        other.gameObject.GetComponent<EnemyBasklass>().TakeDamege(projectileDamage);
         Destroy(gameObject);
         
     }
