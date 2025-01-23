@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 915110486346433436}
   - component: {fileID: 199900092373006862}
   - component: {fileID: 4130493118534940622}
-  m_Layer: 0
+  - component: {fileID: -1677577056955379953}
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,3 +103,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes: []
   speed: 2
+  spwaner: {fileID: 0}
+--- !u!114 &-1677577056955379953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919254800892024706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19a179dee0e3b646a44ab7a25b4287f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 200
+  damage: 10
+  speed: 0
+  moneyEarned: 10
