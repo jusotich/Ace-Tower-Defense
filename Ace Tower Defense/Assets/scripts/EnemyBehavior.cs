@@ -21,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour
             currentNodeIndex++;
             if (currentNodeIndex >= nodes.Length)
             {
-                currentNodeIndex = 0;
+                Destroy(gameObject);
             }
         }
     }
