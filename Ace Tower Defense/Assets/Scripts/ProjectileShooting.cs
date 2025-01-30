@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     [Header("Variabler")]
-    [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private int projectileDamage = 1;
 
     [Header("Referenser")]
@@ -24,9 +24,10 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        other.gameObject.GetComponent<EnemyBasklass>().TakeDamege(projectileDamage);
+        collision.gameObject.GetComponent<EnemyBasklass>().TakeDamege(projectileDamage);
+        Debug.Log("Enemy Hit!");
         Destroy(gameObject);
         
     }

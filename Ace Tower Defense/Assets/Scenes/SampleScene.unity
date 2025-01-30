@@ -470,7 +470,7 @@ Transform:
   m_GameObject: {fileID: 638444387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.64, y: 0.11, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -959,16 +959,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2106163651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1871392048 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
-  m_PrefabInstance: {fileID: 4018032371471251221}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1871392052 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6837184099187978912, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
-  m_PrefabInstance: {fileID: 4018032371471251221}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1900028810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,11 +1127,11 @@ MonoBehaviour:
   range: 10
   rotationSpeed: 200
   bps: 1
-  TurretRotationPoint: {fileID: 1871392052}
+  TurretRotationPoint: {fileID: 1847040125}
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  projectilePrefab: {fileID: 1871392048}
+  projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
   fireingPoint: {fileID: 1847040125}
 --- !u!4 &2106163651
 Transform:
@@ -1152,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 2106163649}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.98, y: -2.38, z: 0}
+  m_LocalPosition: {x: 0.68, y: -2.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1171,6 +1161,18 @@ PrefabInstance:
     - target: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
       propertyPath: m_Name
       value: Projectile Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 640031870950003764, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 640031870950003764, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640031870950003764, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6837184099187978912, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
       propertyPath: m_LocalPosition.x
