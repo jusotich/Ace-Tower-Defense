@@ -12,8 +12,13 @@ GameObject:
   - component: {fileID: 199900092373006862}
   - component: {fileID: 4130493118534940622}
   - component: {fileID: 2902485103842256492}
+<<<<<<<< HEAD:Ace Tower Defense/Assets/prefabs/enemy.prefab
   m_Layer: 0
   m_Name: enemy
+========
+  m_Layer: 6
+  m_Name: Enemy
+>>>>>>>> c9a18216477ccec7950875439702668a53e6d01e:Ace Tower Defense/Assets/prefabs/Enemy.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
