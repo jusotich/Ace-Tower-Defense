@@ -27,13 +27,10 @@ public class Spwaner : MonoBehaviour
             waveIsDone = true;
             gameManager.AdvanceRound();
         }
-        else
-        {
-            Debug.Log("wave did not complet");
-        }
     }
     public void EnemyDied()
     {
+        gameManager.TakeDamage();
         currentEnemyOnScreen--;
     }
     IEnumerator waveSpawner()
@@ -46,11 +43,12 @@ public class Spwaner : MonoBehaviour
             // Instantiate the enemy
             GameObject enemyClone = Instantiate(enemy, transform.position, Quaternion.identity);
 
-            // Pass the nodes to the enemy's EnemyBehavior script
+            // Pass the nodes and spwaner to the enemy's EnemyBehavior script
             EnemyBehavior enemyBehavior = enemyClone.GetComponent<EnemyBehavior>();
             if (enemyBehavior != null)
             {
                 enemyBehavior.SetNodes(nodes); // Assign the path nodes
+                enemyBehavior.SetSpwaner(this);
             }
             else
             {

@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
         hpText.text = "HP: " + hp.ToString();
         roundText.text = "Round: " + round.ToString();
         cashText.text = "Cash: " + cash.ToString();
-
-
     }
     public void TakeDamage()
     {
