@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259364}
   m_Layer: 0
-  m_Name: Towers
+  m_Name: PlacedTowers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,6 +740,10 @@ PrefabInstance:
     - target: {fileID: 4806565468355732222, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553937059480973581, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+      propertyPath: range
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
