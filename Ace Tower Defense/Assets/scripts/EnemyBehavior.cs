@@ -26,8 +26,8 @@ public class EnemyBehavior : MonoBehaviour
             if (currentNodeIndex >= nodes.Length)
             {
                 currentNodeIndex = 0; // dont know if it needs this im leaving it here cuz i dont want to break it
-                spwaner.EnemyDied();
                 Destroy(gameObject);
+                spwaner.CountEnemies();
             }
         }
     }
