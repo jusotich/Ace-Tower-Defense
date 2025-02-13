@@ -60,6 +60,7 @@ public class Spwaner : MonoBehaviour
                 enemyBehavior.SetNodes(nodes); // Assign the path nodes
                 enemyBehavior.SetSpwaner(this);
                 enemyBasklass.SetSpwaner(this);
+                enemyBehavior.SetGameManger(FindAnyObjectByType<GameManager>());
             }
             else
             {

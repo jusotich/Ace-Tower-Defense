@@ -105,6 +105,7 @@ MonoBehaviour:
   nodes: []
   speed: 5
   spwaner: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!61 &3403583764731320082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 1
-  damage: 10
+  damage: 1
   speed: 0
   moneyEarned: 10
   Spwaner: {fileID: 0}

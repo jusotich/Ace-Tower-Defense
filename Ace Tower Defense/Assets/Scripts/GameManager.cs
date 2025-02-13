@@ -10,16 +10,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI roundText;
     public TextMeshProUGUI cashText;
 
-
     private void Update()
     {
         hpText.text = "HP: " + hp.ToString();
         roundText.text = "Round: " + round.ToString();
         cashText.text = "Cash: " + cash.ToString();
     }
-    public void TakeDamage()
+    public void TakeDamage(int takenDamage)
     {
-        hp -= 1;
+        hp -= takenDamage;
     }
     public void GetCash(int moneyAmount)
     {
