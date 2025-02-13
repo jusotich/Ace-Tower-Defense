@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ProjectileShooting : MonoBehaviour
 {
     private Transform target;
 

@@ -79,7 +79,7 @@ public class TargetingSystem : MonoBehaviour
     private void Shoot()
     {
         GameObject Projectile = Instantiate(projectilePrefab, fireingPoint.position, Quaternion.identity);
-        Bullet projectileScript = Projectile.GetComponent<Bullet>();
+        ProjectileShooting projectileScript = Projectile.GetComponent<ProjectileShooting>();
         projectileScript.SetTarget(target);
     }
 
