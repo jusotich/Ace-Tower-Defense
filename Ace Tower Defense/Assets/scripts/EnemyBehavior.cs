@@ -7,6 +7,7 @@ public class EnemyBehavior : MonoBehaviour
     public float speed = 2f;
     private int currentNodeIndex = 0;
     public Spwaner spwaner;
+    public GameManager manager;
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
         //get the current nodes position
         Transform targetNode = nodes[currentNodeIndex];
         Vector3 targetPosition = targetNode.position;
+        EnemyBasklass stat = this.GetComponent<EnemyBasklass>();
 
         //move towards the target node
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -27,11 +29,19 @@ public class EnemyBehavior : MonoBehaviour
             {
                 currentNodeIndex = 0; // dont know if it needs this im leaving it here cuz i dont want to break it
                 Destroy(gameObject);
-                spwaner.CountEnemies();
+                manager.TakeDamage(stat.damage);
+                if (spwaner != null)
+                {
+                    spwaner.Invoke(nameof(Spwaner.CountEnemies), 0.1f); // Small delay to ensure destruction happens first
+                }
             }
         }
     }
-
+    //get the gamemanager refrence for the enemys
+    public void SetGameManger(GameManager newGameManager)
+    {
+        manager = newGameManager;
+    }
     //get the node refrences for the enemys
     public void SetNodes(Transform[] newNodes)
     {

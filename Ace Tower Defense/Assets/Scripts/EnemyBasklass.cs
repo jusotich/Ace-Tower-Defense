@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyBasklass : MonoBehaviour
 {
     public float startHealth = 1f;
-    private float health;
+    protected float health;
     public int damage = 10;
     public float speed;
     public int moneyEarned = 10;
@@ -39,7 +39,5 @@ public class EnemyBasklass : MonoBehaviour
         {
             Spwaner.Invoke(nameof(Spwaner.CountEnemies), 0.1f); // Small delay to ensure destruction happens first
         }
-
-        Debug.Log("The enemy is dead");
     }
 }
