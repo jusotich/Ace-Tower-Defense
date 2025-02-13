@@ -8,6 +8,9 @@ using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
+    public GameObject settingsMenuUI;
+
     public AudioMixer audioMixer;
 
     public TMP_Dropdown resolutionDropdown;
@@ -67,5 +70,11 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen (bool isFullscreen) 
     {
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void GoBack()
+    {
+        pauseMenuUI.SetActive(true);
+        settingsMenuUI.SetActive(false);
     }
 }
