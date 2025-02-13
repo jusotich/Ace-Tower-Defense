@@ -39,7 +39,5 @@ public class EnemyBasklass : MonoBehaviour
         {
             Spwaner.Invoke(nameof(Spwaner.CountEnemies), 0.1f); // Small delay to ensure destruction happens first
         }
-
-        Debug.Log("The enemy is dead");
     }
 }

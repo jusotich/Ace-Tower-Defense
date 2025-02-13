@@ -27,7 +27,10 @@ public class EnemyBehavior : MonoBehaviour
             {
                 currentNodeIndex = 0; // dont know if it needs this im leaving it here cuz i dont want to break it
                 Destroy(gameObject);
-                spwaner.CountEnemies();
+                if (spwaner != null)
+                {
+                    spwaner.Invoke(nameof(Spwaner.CountEnemies), 0.1f); // Small delay to ensure destruction happens first
+                }
             }
         }
     }
