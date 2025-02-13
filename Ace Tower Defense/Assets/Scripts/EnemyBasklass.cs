@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyBasklass : MonoBehaviour
 {
     public float startHealth = 1f;
-    private float health;
+    protected float health;
     public int damage = 10;
     public float speed;
     public int moneyEarned = 10;
