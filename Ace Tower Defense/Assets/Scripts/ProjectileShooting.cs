@@ -19,10 +19,18 @@ public class ProjectileShooting : MonoBehaviour
         rb.linearVelocity = direction * bulletSpeed;
     }
 
+    private void Start()
+    {
+        Debug.Log("Projectile Layer: " + LayerMask.NameToLayer("Projectile"));
+        Debug.Log("Map Layer: " + LayerMask.NameToLayer("Map"));
+        Physics2D.IgnoreLayerCollision(7, 8);
+    }
+
     public void SetTarget(Transform _target)
     {
-        target = _target;
+            target = _target;   
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
