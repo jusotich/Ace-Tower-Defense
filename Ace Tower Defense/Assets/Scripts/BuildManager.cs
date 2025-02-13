@@ -25,14 +25,21 @@ public class BuildManager : MonoBehaviour
         return towerPrefabs[SelectedTower];
     }
 
-
     private void OnMouseDown()
     {
         if (tower != null) return;
 
         GameObject towerToBuild = GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        Vector2 mouseWorldPos = GetMouseWorldPosition();
+
+
+        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity); tower = null;
     }
 
-
+    private Vector2 GetMouseWorldPosition()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(mousePosition);
+    }
 }
