@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Ace Tower Defense/Assets/UI Toolkit.meta
 guid: 01a4b38cac4619345a876f3e48461fca
+=======
+guid: 4f372d6669aa4c1428f2c97c7fac57bf
+guid: 35c4faff50b6dda4d82c9e07b70fd9fd
+>>>>>>> main:Ace Tower Defense/Assets/scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

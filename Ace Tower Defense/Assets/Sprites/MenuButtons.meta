@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Ace Tower Defense/Assets/Sprites/MenuButtons.meta
 guid: 072057d27a8fc8141a46613f953f9b96
+=======
+guid: 76c44be721d83004ca67a76cc80b6216
+>>>>>>> main:Ace Tower Defense/Assets/prefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
