@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class ArmoredEnemy : EnemyBasklass
+public class ArmoredEnemys : EnemyBasklass
 {
-    private bool isArmored;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        health = startHealth;
         isArmored = true;
     }
 

@@ -8,6 +8,7 @@ public class EnemyBasklass : MonoBehaviour
     public float speed;
     public int moneyEarned = 10;
     public Spwaner Spwaner;
+    public bool isArmored = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,9 +20,16 @@ public class EnemyBasklass : MonoBehaviour
     {
         Spwaner = newSpwaner;
     }
-    public void TakeDamege(float amount) 
+    public void TakeDamege(float amount, bool isArmorPiercing) 
     {
+
+        if (isArmored && !isArmorPiercing)
+        {
+            Debug.Log("enemy is armored! no dmg taken.");
+        }
+
         health -= amount;
+        Debug.Log("enemy took"+damage+"damage. remaingin health"+health)
 
         if (health <= 0)
         {
