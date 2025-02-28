@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d55e9d3565315dd4a8cf4d92d3257eda
+guid: a5a0ecfd898d56448b4c5b991cd76b74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 400754527299398905
-    second: Pouse Menue Resume_0
+      213: 2625016487139996763
+    second: Pouse Menue Menu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pouse Menue Resume_0
+      name: Pouse Menue Menu_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fc6fc98e14cf8500800000000000000
-      internalID: 400754527299398905
+      spriteID: b54f58d469eed6420800000000000000
+      internalID: 2625016487139996763
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Pouse Menue Resume_0: 400754527299398905
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
