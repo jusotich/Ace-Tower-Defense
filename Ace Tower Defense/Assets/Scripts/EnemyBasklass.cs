@@ -26,10 +26,11 @@ public class EnemyBasklass : MonoBehaviour
         if (isArmored && !isArmorPiercing)
         {
             Debug.Log("enemy is armored! no dmg taken.");
+            return;
         }
 
         health -= amount;
-        Debug.Log("enemy took"+damage+"damage. remaingin health"+health)
+        Debug.Log("enemy took" + damage + "damage. remaingin health" + health);
 
         if (health <= 0)
         {

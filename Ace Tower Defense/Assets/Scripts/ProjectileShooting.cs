@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [Header("Variabler")]
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private int projectileDamage = 1;
+    private bool isArmoredPeircing = false;
 
     [Header("Referenser")]
     [SerializeField] private Rigidbody2D rb;
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<EnemyBasklass>().TakeDamege(projectileDamage);
+        other.gameObject.GetComponent<EnemyBasklass>().TakeDamege(projectileDamage,isArmoredPeircing);
         Debug.Log("Enemy Hit!");
         Destroy(gameObject);
         
