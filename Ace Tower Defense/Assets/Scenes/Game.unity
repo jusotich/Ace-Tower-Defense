@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRate: 3
   enemyThisRound: 0
-  enemy: {fileID: 7410787214318986340, guid: 4e75cda53a2d35644a276944973c9a81, type: 3}
+  enemy: {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
   nodes:
   - {fileID: 434625601}
   - {fileID: 1491675060}
@@ -1075,6 +1075,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5850354387017159584, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 2b8dbbea7a0acf74493163b6f5c8d12f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1277,7 +1281,7 @@ Transform:
   m_GameObject: {fileID: 1381786986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 3.71, y: 3.71, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
