@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a179dee0e3b646a44ab7a25b4287f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   startHealth: 1
   damage: 1
   speed: 0

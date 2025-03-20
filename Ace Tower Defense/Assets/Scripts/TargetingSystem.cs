@@ -9,7 +9,6 @@ public class TargetingSystem : MonoBehaviour
 {
     [Header("Variabler")]
     [SerializeField] private float range = 5f;
-    [SerializeField] private float rotationSpeed =200f;
     [SerializeField] private float bps = 1f; //bullets per second
 
     [Header("Referenser")]

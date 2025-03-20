@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class EnemyBasklass : MonoBehaviour
 {
+    public GameManager gameManager;
     public float startHealth = 1f;
     protected float health;
     public int damage = 10;
-    public float speed;
     public int moneyEarned = 10;
     public Spwaner Spwaner;
     public bool isArmored = false;
@@ -14,6 +14,7 @@ public class EnemyBasklass : MonoBehaviour
     void Start()
     {
         health = startHealth;
+        gameManager = FindAnyObjectByType<GameManager>();
     }
     //get the spwaner refrence for the enemys
     public void SetSpwaner(Spwaner newSpwaner)
@@ -34,6 +35,7 @@ public class EnemyBasklass : MonoBehaviour
 
         if (health <= 0)
         {
+            gameManager.GetCash(moneyEarned);
             Die();
         }
     }
