@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class BuildManager : MonoBehaviour 
 {
     public static BuildManager main;
+    public Transform towerContainer;
 
 
     [Header("Referenser")]
@@ -24,7 +25,8 @@ public class BuildManager : MonoBehaviour
     {
         return towerPrefabs[SelectedTower];
     }
-
+    
+    //dodo code
     private void OnMouseDown()
     {
         if (tower != null) return;
@@ -33,7 +35,7 @@ public class BuildManager : MonoBehaviour
         Vector2 mouseWorldPos = GetMouseWorldPosition();
 
 
-        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity); tower = null;
+        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer); tower = null;
     }
 
     private Vector2 GetMouseWorldPosition()

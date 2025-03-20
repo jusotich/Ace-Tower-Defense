@@ -13,7 +13,6 @@ public class TargetingSystem : MonoBehaviour
     [SerializeField] private float bps = 1f; //bullets per second
 
     [Header("Referenser")]
-    [SerializeField] private Transform TurretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireingPoint;
@@ -35,8 +34,6 @@ public class TargetingSystem : MonoBehaviour
             FindTarget();
             return;
         }
-
-        RotateTowardsTarget();
 
         if (!CheckTargetInRange())
         {
@@ -61,14 +58,6 @@ public class TargetingSystem : MonoBehaviour
             target = hits[0].transform;
         }
         
-    }
-
-    private void RotateTowardsTarget()
-    {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg -90f;
-
-        quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        TurretRotationPoint.rotation = Quaternion.RotateTowards(TurretRotationPoint.rotation, targetRotation, rotationSpeed*Time.deltaTime);
     }
 
     private bool CheckTargetInRange()

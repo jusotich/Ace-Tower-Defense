@@ -32,8 +32,7 @@ Transform:
   m_LocalPosition: {x: 18.6, y: -0.4, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3131063343035513099}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5850354387017159584
@@ -106,12 +105,12 @@ MonoBehaviour:
   range: 13
   rotationSpeed: 200
   bps: 1
-  TurretRotationPoint: {fileID: 3131063343035513099}
+  TurretRotationPoint: {fileID: 0}
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
   projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
-  fireingPoint: {fileID: 3131063343035513099}
+  fireingPoint: {fileID: 4806565468355732222}
 --- !u!114 &8859614791813702427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,34 +172,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 7.26}
   m_EdgeRadius: 0
---- !u!1 &5695940388192409263
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3131063343035513099}
-  m_Layer: 0
-  m_Name: FirePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3131063343035513099
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5695940388192409263}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4806565468355732222}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
