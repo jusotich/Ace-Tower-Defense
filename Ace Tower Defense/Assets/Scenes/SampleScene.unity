@@ -317,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRate: 3
   enemyThisRound: 0
-  enemy: {fileID: 7410787214318986340, guid: 4e75cda53a2d35644a276944973c9a81, type: 3}
+  enemy: {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
   nodes:
   - {fileID: 434625601}
   - {fileID: 1491675060}
