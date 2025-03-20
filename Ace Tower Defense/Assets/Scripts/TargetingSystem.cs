@@ -22,8 +22,8 @@ public class TargetingSystem : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Handles.color = Color.magenta;
-        Handles.DrawWireDisc(transform.position, transform.forward, range);
+        //.DrawWireDisc(transform.position, transform.forward, range);
+        //.color = Color.magenta;
     }
 
 
