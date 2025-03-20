@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Main_Menu : MonoBehaviour
+
+public class MapMenu : MonoBehaviour
 {
+
     public int sceneNum;
 
-    public void OpenScene()
-    {
+   public void OpenScene()
+   {
         SceneManager.LoadScene(sceneNum);
-    }
-
-    public void quitGame()
-    {
-        Application.Quit();
-    }
+   }
 }

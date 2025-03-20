@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4b06d733903a2e342b8e435097082241
+guid: 0dc57b747af9d7b4da9009aa7a44997e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5687840249154085617
-    second: Map 2_0
+      213: 9193124801489320313
+    second: Map 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map 2_0
+      name: Map 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -108,68 +108,15 @@ TextureImporter:
         width: 1920
         height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -960, y: -540}
-        - {x: 773, y: -540}
-        - {x: 777, y: -157}
-        - {x: 740, y: -72}
-        - {x: 650, y: -50}
-        - {x: 473, y: -58}
-        - {x: 192, y: -97}
-        - {x: -182, y: -176}
-        - {x: -519, y: -244}
-        - {x: -669, y: -239}
-        - {x: -806, y: -176}
-        - {x: -862, y: -80}
-        - {x: -865, y: 43}
-        - {x: -815, y: 168}
-        - {x: -701, y: 236}
-        - {x: -585, y: 245}
-        - {x: -434, y: 229}
-        - {x: -94, y: 157}
-        - {x: 140, y: 114}
-        - {x: 441, y: 50}
-        - {x: 679, y: 51}
-        - {x: 738, y: 74}
-        - {x: 771, y: 127}
-        - {x: 776, y: 207}
-        - {x: 776, y: 348}
-        - {x: 719, y: 357}
-        - {x: 719, y: 255}
-        - {x: 719, y: 174}
-        - {x: 682, y: 117}
-        - {x: 556, y: 99}
-        - {x: 417, y: 114}
-        - {x: 196, y: 156}
-        - {x: -320, y: 277}
-        - {x: -583, y: 306}
-        - {x: -752, y: 298}
-        - {x: -870, y: 225}
-        - {x: -925, y: 110}
-        - {x: -931, y: -28}
-        - {x: -904, y: -166}
-        - {x: -835, y: -254}
-        - {x: -715, y: -303}
-        - {x: -574, y: -300}
-        - {x: -378, y: -286}
-        - {x: 377, y: -117}
-        - {x: 570, y: -98}
-        - {x: 679, y: -117}
-        - {x: 716, y: -175}
-        - {x: 709, y: -345}
-        - {x: 773, y: -348}
-        - {x: 770, y: -540}
-        - {x: 960, y: -540}
-        - {x: 960, y: 540}
-        - {x: -960, y: 540}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: f0d500acd6bb011b0800000000000000
-      internalID: -5687840249154085617
+      spriteID: 979ba98bc4a849f70800000000000000
+      internalID: 9193124801489320313
       vertices: []
       indices: 
       edges: []
