@@ -835,7 +835,6 @@ GameObject:
   m_Component:
   - component: {fileID: 835708267}
   - component: {fileID: 835708265}
-  - component: {fileID: 835708266}
   m_Layer: 0
   m_Name: GameManeger
   m_TagString: Untagged
@@ -861,21 +860,6 @@ MonoBehaviour:
   hpText: {fileID: 10350648}
   roundText: {fileID: 336134718}
   cashText: {fileID: 1936467096}
---- !u!114 &835708266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835708264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b04064ed07715a4b8ee09fba24c4fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerContainer: {fileID: 0}
-  towerPrefabs:
-  - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
 --- !u!4 &835708267
 Transform:
   m_ObjectHideFlags: 0
@@ -981,6 +965,7 @@ GameObject:
   - component: {fileID: 960807057}
   - component: {fileID: 960807056}
   - component: {fileID: 960807058}
+  - component: {fileID: 960807059}
   m_Layer: 0
   m_Name: Map 1_0
   m_TagString: Untagged
@@ -1104,11 +1089,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 9.599999, y: -5.4}
-      - {x: 9.599999, y: 5.4}
-      - {x: -9.599999, y: 5.4}
-      - {x: -9.599999, y: -5.4}
-      - {x: 0.37, y: -5.4}
+    - - {x: 3.98, y: -4.0499997}
+      - {x: 5.65, y: -3.08}
+      - {x: 7.27, y: -1.54}
+      - {x: 8.349999, y: 0.11}
+      - {x: 9.08, y: 1.89}
+      - {x: 9.437578, y: 3.8323534}
+      - {x: 9.41, y: 5.4}
+      - {x: -9.389999, y: 5.4}
+      - {x: -9.37, y: 3.34}
+      - {x: -8.99, y: 1.5799999}
+      - {x: -8.47, y: 0.32}
+      - {x: -7.6099997, y: -1.09}
+      - {x: -6.27, y: -2.6}
+      - {x: -4.19, y: -3.9299998}
+      - {x: -2.37, y: -4.66}
+      - {x: -0.91999996, y: -4.88}
+      - {x: 0.37, y: -4.94}
       - {x: 0.32999998, y: -4.02}
       - {x: -0.35, y: -4.06}
       - {x: -0.39, y: -3.26}
@@ -1170,9 +1167,24 @@ PolygonCollider2D:
       - {x: -1.12, y: -2.58}
       - {x: -0.14, y: -2.6699998}
       - {x: 0.32999998, y: -3.06}
-      - {x: 0.37, y: -5.4}
-      - {x: -0.31, y: -5.4}
+      - {x: 0.35999998, y: -4.92}
+      - {x: 1.8399999, y: -4.7799997}
   m_UseDelaunayMesh: 0
+--- !u!114 &960807059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960807055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b04064ed07715a4b8ee09fba24c4fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerContainer: {fileID: 1484095206}
+  towerPrefabs:
+  - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
 --- !u!1 &1044403211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,12 +2308,12 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1293239023}
   - {fileID: 1504696261}
   - {fileID: 960807057}
+  - {fileID: 1543499545}
   - {fileID: 835708267}
   - {fileID: 873248227}
   - {fileID: 1071904977}
-  - {fileID: 1293239023}
   - {fileID: 1484095206}
   - {fileID: 661849674}
-  - {fileID: 1543499545}
