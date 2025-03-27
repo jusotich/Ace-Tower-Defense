@@ -315,15 +315,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0d913dafe1f0042a7a15badc091b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 3
-  enemyThisRound: 0
-  enemyPrefabs:
-  - {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
-  - {fileID: 7410787214318986340, guid: f9353ba8f5d8f2449b040f383d3c8eb2, type: 3}
-  - {fileID: 7410787214318986340, guid: 883d38f6bcf05d440ac38678596ddb8f, type: 3}
-  - {fileID: 7410787214318986340, guid: 2a0695e9f9c49e140a04d12068bebfc4, type: 3}
-  - {fileID: 7410787214318986340, guid: d0f934896a61b4a45ae0e216635415c2, type: 3}
-  - {fileID: 7410787214318986340, guid: ce5c358fb9482e345bbb6fc628fd04e8, type: 3}
+  rounds:
+  - enemies:
+    - enemyPrefab: {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
+      count: 20
+    spawnRate: 2
+  - enemies:
+    - enemyPrefab: {fileID: 7410787214318986340, guid: ce5c358fb9482e345bbb6fc628fd04e8, type: 3}
+      count: 2
+    spawnRate: 1.5
   nodes:
   - {fileID: 434625601}
   - {fileID: 1491675060}
@@ -339,7 +339,8 @@ MonoBehaviour:
   - {fileID: 401794878}
   - {fileID: 107671528}
   - {fileID: 1549616257}
-  enemyContainer: {fileID: 0}
+  enemyContainer: {fileID: 129701159}
+  enemiesAlive: 0
   gameManager: {fileID: 1945432120}
 --- !u!4 &85531376
 Transform:

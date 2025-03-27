@@ -1,104 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spwaner : MonoBehaviour
 {
-    public float spawnRate;
-    public int enemyThisRound;
-    public GameObject[] enemyPrefabs; // Array of enemy prefabs
-
-    public Transform[] nodes; // Path nodes
+    public List<Round> rounds; // List of rounds (set in Inspector)
+    public Transform[] nodes; // Enemy path nodes
     public Transform enemyContainer;
+
+    private int currentRoundIndex = 0;
     private bool waveIsDone = true;
-    private int enemyCount;
+    public int enemiesAlive = 0;
 
     public GameManager gameManager;
 
-    private Dictionary<int, List<int>> enemyWaves = new Dictionary<int, List<int>>();
-
-    void Start()
-    {
-        SetupEnemyWaves();
-    }
-
     void Update()
     {
-        if (waveIsDone)
+        if (waveIsDone && currentRoundIndex < rounds.Count)
         {
             StartCoroutine(WaveSpawner());
         }
 
-        if (GetEnemyCount() <= 0)
+        if (enemiesAlive <= 0)
         {
             waveIsDone = true;
             gameManager.AdvanceRound();
+            Debug.Log("advanceRound is called");
+            currentRoundIndex++; // Move to the next round
         }
-    }
-
-    public void CountEnemies()
-    {
-        enemyCount = enemyContainer.childCount;
-        Debug.Log("Number of enemies: " + enemyCount);
-    }
-
-    public int GetEnemyCount()
-    {
-        return enemyCount;
     }
 
     IEnumerator WaveSpawner()
     {
         waveIsDone = false;
 
-        if (!enemyWaves.ContainsKey(gameManager.round))
+        if (currentRoundIndex >= rounds.Count)
         {
-            Debug.LogWarning("No wave data found for round " + gameManager.round);
+            Debug.Log("All rounds completed!");
             yield break;
         }
 
-        List<int> enemiesToSpawn = enemyWaves[gameManager.round];
+        Round currentRound = rounds[currentRoundIndex];
 
-        foreach (int enemyIndex in enemiesToSpawn)
+        foreach (RoundEnemy roundEnemy in currentRound.enemies)
         {
-            if (enemyIndex < 0 || enemyIndex >= enemyPrefabs.Length)
+            for (int i = 0; i < roundEnemy.count; i++)
             {
-                Debug.LogError("Invalid enemy index in round " + gameManager.round);
-                continue;
+                SpawnEnemy(roundEnemy.enemyPrefab);
+                yield return new WaitForSeconds(currentRound.spawnRate);
             }
-
-            GameObject enemyClone = Instantiate(enemyPrefabs[enemyIndex], transform.position, Quaternion.identity, enemyContainer);
-            CountEnemies();
-
-            EnemyBehavior enemyBehavior = enemyClone.GetComponent<EnemyBehavior>();
-            EnemyBasklass enemyBasklass = enemyClone.GetComponent<EnemyBasklass>();
-
-            if (enemyBehavior != null)
-            {
-                enemyBehavior.SetNodes(nodes);
-                enemyBehavior.SetSpwaner(this);
-                enemyBasklass.SetSpwaner(this);
-                enemyBehavior.SetGameManger(FindAnyObjectByType<GameManager>());
-            }
-            else
-            {
-                Debug.LogError("Spawned enemy missing EnemyBehavior script!");
-            }
-
-            yield return new WaitForSeconds(spawnRate);
         }
-
-        spawnRate = Mathf.Max(0.1f, spawnRate - 0.1f);
     }
 
-    void SetupEnemyWaves()
+    void SpawnEnemy(GameObject enemyPrefab)
     {
-        // Defining enemy waves manually
-        enemyWaves[1] = new List<int> { 0, 0, 0, 0, 1, 1 }; // Round 1: 4 Red, 2 Blue
-        enemyWaves[2] = new List<int> { 0, 1, 1, 2, 2, 2 }; // Round 2: 1 Red, 2 Blue, 3 Green
-        enemyWaves[3] = new List<int> { 1, 1, 2, 2, 3 }; // Round 3: 2 Blue, 2 Green, 1 Yellow
-        enemyWaves[4] = new List<int> { 2, 3, 3, 4 }; // Round 4: 1 Green, 2 Yellow, 1 Pink
-        enemyWaves[5] = new List<int> { 3, 4, 4, 5 }; // Round 5: 1 Yellow, 2 Pink, 1 Armored
-        enemyWaves[6] = new List<int> { 4, 4, 5, 5, 5 }; // Round 6: 2 Pink, 3 Armored
+        GameObject enemyClone = Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyContainer);
+        enemiesAlive++;
+
+        EnemyBehavior enemyBehavior = enemyClone.GetComponent<EnemyBehavior>();
+        if (enemyBehavior != null)
+        {
+            enemyBehavior.SetNodes(nodes);
+            enemyBehavior.SetSpwaner(this);
+            enemyBehavior.SetGameManger(FindAnyObjectByType<GameManager>());
+        }
+
+        enemyClone.GetComponent<EnemyBasklass>()?.SetSpwaner(this);
+    }
+
+    public void EnemyDied()
+    {
+        enemiesAlive--;
     }
 }
