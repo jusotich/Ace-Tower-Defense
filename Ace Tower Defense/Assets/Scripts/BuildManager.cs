@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class BuildManager : MonoBehaviour 
+public class BuildManager : MonoBehaviour
 {
     public static BuildManager main;
     public Transform towerContainer;
 
-
     [Header("Referenser")]
     [SerializeField] private GameObject[] towerPrefabs;
-
-    public GameObject towerObj;
-    public TargetingSystem tower;
 
     private int SelectedTower = 0;
 
@@ -26,22 +22,34 @@ public class BuildManager : MonoBehaviour
     {
         return towerPrefabs[SelectedTower];
     }
-    
-    //dodo code
-    private void OnMouseDown()
+
+    void Update()
     {
-        if (towerObj != null)
+        if (Input.GetMouseButtonDown(0)) // Left-click
         {
-            tower.OpenUpgradeUI();
-            
+            HandleClick();
+        }
+    }
+
+    private void HandleClick()
+    {
+        Vector2 mouseWorldPos = GetMouseWorldPosition();
+        RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+
+        if (hit.collider != null) // Clicked on something
+        {
+            TargetingSystem tower = hit.collider.GetComponent<TargetingSystem>();
+            if (tower != null)
+            {
+                Debug.Log("Tower clicked! Opening upgrade UI...");
+                tower.OpenUpgradeUI();
+                return;
+            }
         }
 
+        // If clicked on empty space, place a new tower
         GameObject towerToBuild = GetSelectedTower();
-        Vector2 mouseWorldPos = GetMouseWorldPosition();
-
-
-        towerObj = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer); towerObj = null;
-        tower = towerObj.GetComponent<TargetingSystem>();
+        GameObject newTower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer);
     }
 
     private Vector2 GetMouseWorldPosition()

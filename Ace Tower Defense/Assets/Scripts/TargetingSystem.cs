@@ -77,6 +77,7 @@ public class TargetingSystem : MonoBehaviour
     public void OpenUpgradeUI()
     {
         upgradeUI.SetActive(true);
+        Debug.Log("upgradeUI works");
     }
 
     public void CloseUpgradeUi()
