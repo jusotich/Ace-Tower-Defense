@@ -2233,7 +2233,7 @@ GameObject:
   - component: {fileID: 2112629887}
   - component: {fileID: 2112629886}
   m_Layer: 0
-  m_Name: Back of cards_0
+  m_Name: Deck Of Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2251,6 +2251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef30595fa1ee6d346835b7838ed05f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardSprites: []
+  cardUIExplain: {fileID: 0}
 --- !u!61 &2112629887
 BoxCollider2D:
   m_ObjectHideFlags: 0
