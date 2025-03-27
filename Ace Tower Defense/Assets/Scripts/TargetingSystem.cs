@@ -2,6 +2,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
 
@@ -15,6 +16,8 @@ public class TargetingSystem : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireingPoint;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeButton;
 
     private float timeUntillFire;
     private Transform target = null;
@@ -71,4 +74,13 @@ public class TargetingSystem : MonoBehaviour
         projectileScript.SetTarget(target);
     }
 
+    public void OpenUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void CloseUpgradeUi()
+    {
+        upgradeUI.SetActive(false);
+    }
 }

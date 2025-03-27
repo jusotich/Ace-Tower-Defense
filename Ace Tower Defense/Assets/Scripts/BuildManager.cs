@@ -12,7 +12,8 @@ public class BuildManager : MonoBehaviour
     [Header("Referenser")]
     [SerializeField] private GameObject[] towerPrefabs;
 
-    private GameObject tower;
+    public GameObject towerObj;
+    public TargetingSystem tower;
 
     private int SelectedTower = 0;
 
@@ -29,13 +30,18 @@ public class BuildManager : MonoBehaviour
     //dodo code
     private void OnMouseDown()
     {
-        if (tower != null) return;
+        if (towerObj != null)
+        {
+            tower.OpenUpgradeUI();
+            
+        }
 
         GameObject towerToBuild = GetSelectedTower();
         Vector2 mouseWorldPos = GetMouseWorldPosition();
 
 
-        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer); tower = null;
+        towerObj = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer); towerObj = null;
+        tower = towerObj.GetComponent<TargetingSystem>();
     }
 
     private Vector2 GetMouseWorldPosition()
