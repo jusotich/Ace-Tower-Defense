@@ -48,7 +48,7 @@ public class EnemyBasklass : MonoBehaviour
         // Delay enemy count update to ensure it's removed from the container
         if (Spwaner != null)
         {
-            Spwaner.Invoke(nameof(Spwaner.CountEnemies), 0.1f); // Small delay to ensure destruction happens first
+            Spwaner.Invoke(nameof(Spwaner.EnemyDied), 0.1f); // Small delay to ensure destruction happens first
         }
     }
 }

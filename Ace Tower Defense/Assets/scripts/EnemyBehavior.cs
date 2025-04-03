@@ -32,7 +32,7 @@ public class EnemyBehavior : MonoBehaviour
                 manager.TakeDamage(stat.damage);
                 if (spwaner != null)
                 {
-                    spwaner.Invoke(nameof(Spwaner.CountEnemies), 0.1f); // Small delay to ensure destruction happens first
+                    spwaner.Invoke(nameof(Spwaner.EnemyDied), 0.1f); // Small delay to ensure destruction happens first
                 }
             }
         }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3403583764731320082}
   - component: {fileID: -4613817276636535202}
   m_Layer: 6
-  m_Name: enemy
+  m_Name: red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,7 +167,6 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   startHealth: 1
   damage: 1
-  speed: 0
-  moneyEarned: 10
+  moneyEarned: 1
   Spwaner: {fileID: 0}
   isArmored: 0

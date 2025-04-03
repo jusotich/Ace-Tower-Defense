@@ -1,78 +1,76 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Spwaner : MonoBehaviour
 {
-    public float spawnRate;
-    public int enemyThisRound;
-    public GameObject enemy; // Prefab of the enemy
-    public Transform[] nodes; // Path nodes to pass to enemies
-    bool waveIsDone = true;
-    public Transform enemyContaier;
+    public List<Round> rounds; // List of rounds (set in Inspector)
+    public Transform[] nodes; // Enemy path nodes
+    public Transform enemyContainer;
 
-    private int enemyCount; // Store the enemy count
+    private int currentRoundIndex = 0;
+    private bool waveIsDone = true;
+    public int enemiesAlive = 0;
 
     public GameManager gameManager;
 
-    // Update is called once per frame
     void Update()
     {
-        if (waveIsDone == true)
+        if (waveIsDone && currentRoundIndex < rounds.Count)
         {
             StartCoroutine(WaveSpawner());
         }
 
-        if (GetEnemyCount() <= 0 )
+        if (enemiesAlive <= 0)
         {
             waveIsDone = true;
             gameManager.AdvanceRound();
+            Debug.Log("advanceRound is called");
+            currentRoundIndex++; // Move to the next round
         }
-    }
-    public void CountEnemies()
-    {
-        enemyCount = enemyContaier.childCount;
-        Debug.Log("number of enemies: " + enemyCount);
-
-    }
-    public int GetEnemyCount()
-    {
-        return enemyCount;
     }
 
     IEnumerator WaveSpawner()
     {
-
         waveIsDone = false;
 
-        for (int i = 0; i < enemyThisRound; i++) // Spawns a wave of enemies
+        if (currentRoundIndex >= rounds.Count)
         {
-            // Instantiate the enemy
-            GameObject enemyClone = Instantiate(enemy, transform.position, Quaternion.identity, enemyContaier);
-            CountEnemies();
-
-            // Pass the nodes and spwaner to the enemy's EnemyBehavior script
-            EnemyBehavior enemyBehavior = enemyClone.GetComponent<EnemyBehavior>();
-            EnemyBasklass enemyBasklass = enemyClone.GetComponent<EnemyBasklass>();
-            if (enemyBehavior != null)
-            {
-                enemyBehavior.SetNodes(nodes); // Assign the path nodes
-                enemyBehavior.SetSpwaner(this);
-                enemyBasklass.SetSpwaner(this);
-                enemyBehavior.SetGameManger(FindAnyObjectByType<GameManager>());
-            }
-            else
-            {
-                Debug.LogError("The spawned enemy is missing the EnemyBehavior script!");
-            }
-
-            yield return new WaitForSeconds(spawnRate); // Delay between spawns
+            Debug.Log("All rounds completed!");
+            yield break;
         }
 
+        Round currentRound = rounds[currentRoundIndex];
 
-        // Make waves progressively harder
-        spawnRate = Mathf.Max(0.1f, spawnRate - 0.1f); // Clamp spawn rate to avoid going negative
-        enemyThisRound += 3;
+        foreach (RoundEnemy roundEnemy in currentRound.enemies)
+        {
+            for (int i = 0; i < roundEnemy.count; i++)
+            {
+                SpawnEnemy(roundEnemy.enemyPrefab);
+                yield return new WaitForSeconds(currentRound.spawnRate);
+            }
+        }
+    }
+
+    void SpawnEnemy(GameObject enemyPrefab)
+    {
+        GameObject enemyClone = Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyContainer);
+        enemiesAlive++;
+
+        EnemyBehavior enemyBehavior = enemyClone.GetComponent<EnemyBehavior>();
+        if (enemyBehavior != null)
+        {
+            enemyBehavior.SetNodes(nodes);
+            enemyBehavior.SetSpwaner(this);
+            enemyBehavior.SetGameManger(FindAnyObjectByType<GameManager>());
+        }
+
+        enemyClone.GetComponent<EnemyBasklass>()?.SetSpwaner(this);
+    }
+
+    public void EnemyDied()
+    {
+        enemiesAlive--;
     }
 }
