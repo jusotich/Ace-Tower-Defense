@@ -14,6 +14,7 @@ public class BuildManager : MonoBehaviour
 
     private int SelectedTower = 0;
     private bool towerUpgradeOpen = false;
+    private TargetingSystem currentTower = null;
 
     private void Awake()
     {
@@ -44,12 +45,22 @@ public class BuildManager : MonoBehaviour
 
             if (tower != null) // Clicked on a tower
             {
-                if (!towerUpgradeOpen)
+                //if clicking tha same towet = ingore
+                if(tower == currentTower&& towerUpgradeOpen)
                 {
-                    Debug.Log("Tower clicked! Opening upgrade UI...");
-                    tower.OpenUpgradeUI();
-                    towerUpgradeOpen = true;
+                    return;
                 }
+
+
+                if (towerUpgradeOpen)
+                {
+                    TargetingSystem.CloseAllUpgradeUIs();// Call the static method
+
+                }
+                Debug.Log("Tower clicked! Opening upgrade UI...");
+                tower.OpenUpgradeUI();
+                towerUpgradeOpen = true;
+                currentTower = tower;
                 return; // Stop further execution (don't build a tower)
             }
         }
@@ -58,8 +69,9 @@ public class BuildManager : MonoBehaviour
         if (towerUpgradeOpen)
         {
             Debug.Log("Closing all upgrade UIs");
-            TargetingSystem.CloseAllUpgradeUIs(); // Call the static method
+            TargetingSystem.CloseAllUpgradeUIs();
             towerUpgradeOpen = false;
+            currentTower = null;
             return; // Stop further execution (don't build a tower)
         }
 
