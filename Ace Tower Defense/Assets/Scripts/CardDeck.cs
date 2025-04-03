@@ -5,14 +5,14 @@ public class CardDeck : MonoBehaviour
 {
     private GameManager gameManager;
     private int drawDeckCost = 100;
-    private int card;
+    public int card;
     public Sprite[] cardSprites;
     public GameObject cardUIExplain;
     public UnityEngine.UI.Image cardUIImage;
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>(); // Assign gameManager dynamically
+        gameManager = FindObjectOfType<GameManager>();
         if (gameManager == null)
         {
             Debug.LogError("GameManager not found in the scene!");
@@ -47,10 +47,17 @@ public class CardDeck : MonoBehaviour
 
     private int RandomCard()
     {
-        int amountOfCards = cardSprites.Count();
-        int card = Random.Range(0, amountOfCards);
+        int amountOfCards = cardSprites.Length;
+
+     
+        float randomValue = Mathf.Pow(Random.value, 2.5f); 
+
+ 
+        int card = Mathf.FloorToInt(randomValue * (amountOfCards - 1));
+
         return card;
     }
+
 
     private void WhatCard(int card)
     {
