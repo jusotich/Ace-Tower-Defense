@@ -15,11 +15,16 @@ public class EnemyBehavior : MonoBehaviour
 
         //get the current nodes position
         Transform targetNode = nodes[currentNodeIndex];
-        Vector3 targetPosition = targetNode.position;
+        Vector2 targetPosition = targetNode.position;
         EnemyBasklass stat = this.GetComponent<EnemyBasklass>();
 
         //move towards the target node
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+        //look at the next target 
+        Vector2 direction = targetPosition - (Vector2)transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle+90);
 
         //change the 
         if (Vector3.Distance(transform.position, targetPosition)< 0.1f)
