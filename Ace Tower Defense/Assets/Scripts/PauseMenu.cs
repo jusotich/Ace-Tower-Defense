@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause ()
     {
+        Debug.Log("Game is Paused!");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -42,11 +44,13 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Debug.Log("Loading Menu...");
+        SceneManager.LoadScene("main menu");
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting game...");
+        
     }
 
     public void Settings()
