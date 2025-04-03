@@ -10,8 +10,10 @@ public class BuildManager : MonoBehaviour
 
     [Header("Referenser")]
     [SerializeField] private GameObject[] towerPrefabs;
+    [SerializeField] private Collider2D mapCollider; // Reference to the map collider
 
     private int SelectedTower = 0;
+    private bool towerUpgradeOpen = false;
 
     private void Awake()
     {
@@ -39,17 +41,39 @@ public class BuildManager : MonoBehaviour
         if (hit.collider != null) // Clicked on something
         {
             TargetingSystem tower = hit.collider.GetComponent<TargetingSystem>();
-            if (tower != null)
+
+            if (tower != null) // Clicked on a tower
             {
-                Debug.Log("Tower clicked! Opening upgrade UI...");
-                tower.OpenUpgradeUI();
-                return;
+                if (!towerUpgradeOpen)
+                {
+                    Debug.Log("Tower clicked! Opening upgrade UI...");
+                    tower.OpenUpgradeUI();
+                    towerUpgradeOpen = true;
+                }
+                return; // Stop further execution (don't build a tower)
             }
         }
 
-        // If clicked on empty space, place a new tower
-        GameObject towerToBuild = GetSelectedTower();
-        GameObject newTower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer);
+        // If upgrade UI is open and we click anywhere else, close all UIs
+        if (towerUpgradeOpen)
+        {
+            Debug.Log("Closing all upgrade UIs");
+            TargetingSystem.CloseAllUpgradeUIs(); // Call the static method
+            towerUpgradeOpen = false;
+            return; // Stop further execution (don't build a tower)
+        }
+
+        // Check if the clicked position is inside the map collider
+        if (mapCollider != null && mapCollider.OverlapPoint(mouseWorldPos))
+        {
+            // If no UI is open and we clicked on the map, place a new tower
+            GameObject towerToBuild = GetSelectedTower();
+            Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer);
+        }
+        else
+        {
+            Debug.Log("Invalid placement! Clicked outside the map area.");
+        }
     }
 
     private Vector2 GetMouseWorldPosition()

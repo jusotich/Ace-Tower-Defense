@@ -33,8 +33,6 @@ public class Spwaner : MonoBehaviour
     public void CountEnemies()
     {
         enemyCount = enemyContaier.childCount;
-        Debug.Log("number of enemies: " + enemyCount);
-
     }
     public int GetEnemyCount()
     {

@@ -93,4 +93,14 @@ public class TargetingSystem : MonoBehaviour
         upgradeUI.SetActive(false);
         Debug.Log("UpgradeUI closing works");
     }
+    // NEW: Static method to close ALL upgrade UIs
+    public static void CloseAllUpgradeUIs()
+    {
+        TargetingSystem[] allTowers = FindObjectsOfType<TargetingSystem>();
+
+        foreach (TargetingSystem tower in allTowers)
+        {
+            tower.CloseUpgradeUI();
+        }
+    }
 }

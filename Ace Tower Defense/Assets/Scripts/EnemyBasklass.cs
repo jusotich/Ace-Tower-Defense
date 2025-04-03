@@ -31,7 +31,6 @@ public class EnemyBasklass : MonoBehaviour
         }
 
         health -= amount;
-        Debug.Log("enemy took" + damage + "damage. remaingin health" + health);
 
         if (health <= 0)
         {
