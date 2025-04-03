@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
+using UnityEditor.Experimental.GraphView;
 
 public class TargetingSystem : MonoBehaviour
 {
@@ -81,14 +82,15 @@ public class TargetingSystem : MonoBehaviour
         if (!clicked)
         {
             clicked = true;
+            upgradeUI.SetActive(true);
+            Debug.Log("upgradeUI works");
             return;
         }
-        upgradeUI.SetActive(true);
-        Debug.Log("upgradeUI works");
     }
 
-    public void CloseUpgradeUi()
+    public void CloseUpgradeUI()
     {
         upgradeUI.SetActive(false);
+        Debug.Log("UpgradeUI closing works");
     }
 }
