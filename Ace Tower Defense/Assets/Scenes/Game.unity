@@ -1138,9 +1138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b04064ed07715a4b8ee09fba24c4fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerContainer: {fileID: 0}
+  towerContainer: {fileID: 4259364}
   towerPrefabs:
   - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+  mapCollider: {fileID: 1381786988}
 --- !u!60 &1381786988
 PolygonCollider2D:
   m_ObjectHideFlags: 0
