@@ -2,8 +2,10 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
+using UnityEditor.Experimental.GraphView;
 
 public class TargetingSystem : MonoBehaviour
 {
@@ -15,9 +17,13 @@ public class TargetingSystem : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireingPoint;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeButton;
 
     private float timeUntillFire;
     private Transform target = null;
+    private bool clicked = false;
+
 
     private void OnDrawGizmosSelected()
     {
@@ -71,4 +77,30 @@ public class TargetingSystem : MonoBehaviour
         projectileScript.SetTarget(target);
     }
 
+    public void OpenUpgradeUI()
+    {
+        if (!clicked)
+        {
+            clicked = true;
+            upgradeUI.SetActive(true);
+            Debug.Log("upgradeUI works");
+            return;
+        }
+    }
+
+    public void CloseUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+        Debug.Log("UpgradeUI closing works");
+    }
+    // NEW: Static method to close ALL upgrade UIs
+    public static void CloseAllUpgradeUIs()
+    {
+        TargetingSystem[] allTowers = FindObjectsOfType<TargetingSystem>();
+
+        foreach (TargetingSystem tower in allTowers)
+        {
+            tower.CloseUpgradeUI();
+        }
+    }
 }

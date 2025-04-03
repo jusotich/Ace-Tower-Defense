@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class BuildManager : MonoBehaviour 
+public class BuildManager : MonoBehaviour
 {
     public static BuildManager main;
     public Transform towerContainer;
 
-
     [Header("Referenser")]
     [SerializeField] private GameObject[] towerPrefabs;
-
-    private GameObject tower;
+    [SerializeField] private Collider2D mapCollider; // Reference to the map collider
 
     private int SelectedTower = 0;
+    private bool towerUpgradeOpen = false;
 
     private void Awake()
     {
@@ -25,17 +24,56 @@ public class BuildManager : MonoBehaviour
     {
         return towerPrefabs[SelectedTower];
     }
-    
-    //dodo code
-    private void OnMouseDown()
+
+    void Update()
     {
-        if (tower != null) return;
+        if (Input.GetMouseButtonDown(0)) // Left-click
+        {
+            HandleClick();
+        }
+    }
 
-        GameObject towerToBuild = GetSelectedTower();
+    private void HandleClick()
+    {
         Vector2 mouseWorldPos = GetMouseWorldPosition();
+        RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
+        if (hit.collider != null) // Clicked on something
+        {
+            TargetingSystem tower = hit.collider.GetComponent<TargetingSystem>();
 
-        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer); tower = null;
+            if (tower != null) // Clicked on a tower
+            {
+                if (!towerUpgradeOpen)
+                {
+                    Debug.Log("Tower clicked! Opening upgrade UI...");
+                    tower.OpenUpgradeUI();
+                    towerUpgradeOpen = true;
+                }
+                return; // Stop further execution (don't build a tower)
+            }
+        }
+
+        // If upgrade UI is open and we click anywhere else, close all UIs
+        if (towerUpgradeOpen)
+        {
+            Debug.Log("Closing all upgrade UIs");
+            TargetingSystem.CloseAllUpgradeUIs(); // Call the static method
+            towerUpgradeOpen = false;
+            return; // Stop further execution (don't build a tower)
+        }
+
+        // Check if the clicked position is inside the map collider
+        if (mapCollider != null && mapCollider.OverlapPoint(mouseWorldPos))
+        {
+            // If no UI is open and we clicked on the map, place a new tower
+            GameObject towerToBuild = GetSelectedTower();
+            Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer);
+        }
+        else
+        {
+            Debug.Log("Invalid placement! Clicked outside the map area.");
+        }
     }
 
     private Vector2 GetMouseWorldPosition()
