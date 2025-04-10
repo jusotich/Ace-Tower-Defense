@@ -14,6 +14,7 @@ public class BuildManager : MonoBehaviour
 
     private int SelectedTower = 0;
     private bool towerUpgradeOpen = false;
+    private TargetingSystem activeTowerUI = null;
 
     private void Awake()
     {
@@ -38,19 +39,32 @@ public class BuildManager : MonoBehaviour
         Vector2 mouseWorldPos = GetMouseWorldPosition();
         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
-        if (hit.collider != null) // Clicked on something
+        if (hit.collider != null)         // Klickade på något
         {
+
             TargetingSystem tower = hit.collider.GetComponent<TargetingSystem>();
 
-            if (tower != null) // Clicked on a tower
+            if (tower != null) // Klickade på ett torn
             {
-                if (!towerUpgradeOpen)
+                // Om vi redan har detta torns UI öppet, gör ingenting
+                if (activeTowerUI == tower && towerUpgradeOpen)
                 {
-                    Debug.Log("Tower clicked! Opening upgrade UI...");
-                    tower.OpenUpgradeUI();
-                    towerUpgradeOpen = true;
+                    return;
                 }
-                return; // Stop further execution! (don't build a tower)
+
+                // Om en annan UI är öppen, stäng den först
+                if (towerUpgradeOpen)
+                {
+                    TargetingSystem.CloseAllUpgradeUIs();
+                    towerUpgradeOpen = false;
+                    activeTowerUI = null;
+                }
+
+                // Öppna det nya tornets UI
+                tower.OpenUpgradeUI();
+                towerUpgradeOpen = true;
+                activeTowerUI = tower;
+                return;
             }
         }
 
@@ -58,9 +72,10 @@ public class BuildManager : MonoBehaviour
         if (towerUpgradeOpen)
         {
             Debug.Log("Closing all upgrade UIs");
-            TargetingSystem.CloseAllUpgradeUIs(); // Call the static method
+            TargetingSystem.CloseAllUpgradeUIs();
             towerUpgradeOpen = false;
-            return; // Stop further execution (don't build a tower)
+            activeTowerUI = null; // Glöm vilket torn som var aktivt
+            return;
         }
 
         // Check if the clicked position is inside the map collider

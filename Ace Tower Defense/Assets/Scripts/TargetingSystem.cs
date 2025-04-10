@@ -22,7 +22,6 @@ public class TargetingSystem : MonoBehaviour
 
     private float timeUntillFire;
     private Transform target = null;
-    private bool clicked = false;
 
 
     private void OnDrawGizmosSelected()
@@ -79,12 +78,10 @@ public class TargetingSystem : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
-        if (!clicked)
+        if (!upgradeUI.activeSelf)
         {
-            clicked = true;
             upgradeUI.SetActive(true);
             Debug.Log("upgradeUI works");
-            return;
         }
     }
 
