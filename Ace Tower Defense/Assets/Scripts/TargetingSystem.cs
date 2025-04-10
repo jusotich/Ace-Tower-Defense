@@ -10,8 +10,8 @@ using UnityEditor.Experimental.GraphView;
 public class TargetingSystem : MonoBehaviour
 {
     [Header("Variabler")]
-    [SerializeField] private float range = 5f;
-    [SerializeField] private float bps = 1f; //bullets per second
+    [SerializeField] public float range = 5f;
+    [SerializeField] public float bps = 1f; //bullets per second
 
     [Header("Referenser")]
     [SerializeField] private LayerMask enemyMask;
@@ -99,5 +99,21 @@ public class TargetingSystem : MonoBehaviour
         {
             tower.CloseUpgradeUI();
         }
+    }
+
+    public void UpgradeRange()
+    {
+        range += 0.3f;
+
+        Debug.Log($"Tower upgraded! New stats -> Range {range}");
+
+        CloseUpgradeUI();
+    }
+
+    public void UpgradeBPS()
+    {
+        bps += 1f;
+
+        Debug.Log($"Tower upgraded! New stats -> bps {bps}");
     }
 }

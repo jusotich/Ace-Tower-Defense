@@ -5,8 +5,8 @@ public class ProjectileShooting : MonoBehaviour
     private Transform target;
 
     [Header("Variabler")]
-    [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int projectileDamage = 1;
+    [SerializeField] public float bulletSpeed = 5f;
+    [SerializeField] public float projectileDamage = 1f;
     private bool isArmoredPeircing = false;
 
     [Header("Referenser")]
@@ -41,4 +41,17 @@ public class ProjectileShooting : MonoBehaviour
         
     }
 
+    public void UpgradeBulletSpeed()
+    {
+        bulletSpeed += 2f;
+
+        Debug.Log($"Tower upgraded! New stats -> Bulletspeed {bulletSpeed}");
+    }
+
+    public void UpgradeDMG()
+    {
+        projectileDamage += 0.5f;
+
+        Debug.Log($"Tower upgraded! New stats -> Damage {projectileDamage}");
+    }
 }
