@@ -6,6 +6,9 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
+    public MonoBehaviour[] scriptsToDisable;
+    public PolygonCollider2D[] collidersToDisable;
+
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
 
@@ -31,6 +34,15 @@ public class PauseMenu : MonoBehaviour
         settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        foreach (var script in scriptsToDisable)
+        {
+            script.enabled = true;
+        }
+        foreach (var col in collidersToDisable)
+        {
+            col.enabled = true;
+        }
     }
 
     void Pause ()
@@ -39,6 +51,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        foreach (var script in scriptsToDisable)
+        {
+            script.enabled = false;
+        }
+        foreach (var col in collidersToDisable)
+        {
+            col.enabled = false;
+        }
     }
 
     public void LoadMenu()

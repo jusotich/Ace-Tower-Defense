@@ -994,10 +994,10 @@ RectTransform:
   - {fileID: 1256969784}
   m_Father: {fileID: 1071904977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.099975586, y: -0.49299622}
+  m_SizeDelta: {x: -1.1999512, y: 0.48999023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191457589
 MonoBehaviour:
@@ -1012,14 +1012,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3917858848853407649, guid: 0d1ba8934e94eac48ba70406a10d7d57, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1157,7 +1157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &251776294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4304,6 +4304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8471e01eade511c4ca4f937a4370ac73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptsToDisable:
+  - {fileID: 960807059}
+  - {fileID: 835708265}
+  - {fileID: 1543499544}
+  collidersToDisable:
+  - {fileID: 960807058}
   pauseMenuUI: {fileID: 251776293}
   settingsMenuUI: {fileID: 191457587}
 --- !u!1 &1091030370
