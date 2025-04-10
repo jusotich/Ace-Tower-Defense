@@ -3582,6 +3582,7 @@ MonoBehaviour:
   towerContainer: {fileID: 1484095206}
   towerPrefabs:
   - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+  mapCollider: {fileID: 0}
 --- !u!1 &967820149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,8 +4307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptsToDisable:
   - {fileID: 960807059}
-  - {fileID: 835708265}
-  - {fileID: 1543499544}
   collidersToDisable:
   - {fileID: 960807058}
   pauseMenuUI: {fileID: 251776293}

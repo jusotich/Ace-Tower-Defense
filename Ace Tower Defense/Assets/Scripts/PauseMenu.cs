@@ -39,6 +39,7 @@ public class PauseMenu : MonoBehaviour
         {
             script.enabled = true;
         }
+
         foreach (var col in collidersToDisable)
         {
             col.enabled = true;
@@ -56,6 +57,7 @@ public class PauseMenu : MonoBehaviour
         {
             script.enabled = false;
         }
+
         foreach (var col in collidersToDisable)
         {
             col.enabled = false;

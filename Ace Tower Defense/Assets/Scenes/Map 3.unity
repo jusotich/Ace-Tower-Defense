@@ -2273,6 +2273,8 @@ MonoBehaviour:
     m_Bits: 64
   projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
   fireingPoint: {fileID: 564079052}
+  upgradeUI: {fileID: 0}
+  upgradeButton: {fileID: 0}
 --- !u!212 &564079051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2879,6 +2881,8 @@ MonoBehaviour:
     m_Bits: 64
   projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
   fireingPoint: {fileID: 749436209}
+  upgradeUI: {fileID: 0}
+  upgradeButton: {fileID: 0}
 --- !u!212 &749436208
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3658,6 +3662,8 @@ MonoBehaviour:
     m_Bits: 64
   projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
   fireingPoint: {fileID: 962293281}
+  upgradeUI: {fileID: 0}
+  upgradeButton: {fileID: 0}
 --- !u!212 &962293280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4869,6 +4875,7 @@ MonoBehaviour:
   towerContainer: {fileID: 1887203571}
   towerPrefabs:
   - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+  mapCollider: {fileID: 0}
 --- !u!1 &1196939985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,8 +6987,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptsToDisable:
   - {fileID: 1178177776}
-  - {fileID: 506887730}
-  - {fileID: 498847305}
   collidersToDisable:
   - {fileID: 1178177775}
   pauseMenuUI: {fileID: 1582154389}
@@ -8559,6 +8564,8 @@ MonoBehaviour:
     m_Bits: 64
   projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
   fireingPoint: {fileID: 5120695591009185095}
+  upgradeUI: {fileID: 0}
+  upgradeButton: {fileID: 0}
 --- !u!114 &9175988476600413346
 MonoBehaviour:
   m_ObjectHideFlags: 0
