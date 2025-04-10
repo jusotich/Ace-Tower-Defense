@@ -30,13 +30,6 @@ public class TargetingSystem : MonoBehaviour
     public GameManager gameManager;
     private float timeUntillFire;
     private Transform target = null;
-
-
-    private void OnDrawGizmosSelected()
-    {
-       Handles.DrawWireDisc(transform.position, transform.forward, range);
-       Handles.color = Color.magenta;
-    }
     private void Start()
     {
         cost = baseUpgradeCost;

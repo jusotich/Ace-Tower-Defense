@@ -282,6 +282,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 506887730}
     - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: enemyContainer
+      value: 
+      objectReference: {fileID: 991928360}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
       propertyPath: nodes.Array.size
       value: 38
       objectReference: {fileID: 0}
@@ -437,6 +441,14 @@ PrefabInstance:
       propertyPath: 'nodes.Array.data[37]'
       value: 
       objectReference: {fileID: 1744766242}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: rounds.Array.data[10].enemies.Array.data[4].count
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: rounds.Array.data[10].enemies.Array.data[5].enemyPrefab
+      value: 
+      objectReference: {fileID: 7410787214318986340, guid: ce5c358fb9482e345bbb6fc628fd04e8, type: 3}
     - target: {fileID: 6817648002840599281, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
       propertyPath: m_Name
       value: Path (1)

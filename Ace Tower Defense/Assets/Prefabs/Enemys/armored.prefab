@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   startHealth: 10
-  damage: 5
+  damage: 10
   moneyEarned: 5
   Spwaner: {fileID: 0}
   isArmored: 1

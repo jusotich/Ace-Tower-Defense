@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a238dcf390108634c8cd696b8bdd38d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 50
   round: 0
   cash: 500
   hpText: {fileID: 1317589646}
@@ -1929,6 +1929,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2094624111}
     - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: enemyContainer
+      value: 
+      objectReference: {fileID: 27029314}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
       propertyPath: nodes.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -2008,6 +2012,18 @@ PrefabInstance:
       propertyPath: 'nodes.Array.data[18]'
       value: 
       objectReference: {fileID: 1813785950}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: rounds.Array.data[10].enemies.Array.data[4].count
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: rounds.Array.data[10].enemies.Array.data[5].count
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275614448451047062, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
+      propertyPath: rounds.Array.data[10].enemies.Array.data[5].enemyPrefab
+      value: 
+      objectReference: {fileID: 7410787214318986340, guid: ce5c358fb9482e345bbb6fc628fd04e8, type: 3}
     - target: {fileID: 6817648002840599281, guid: c76deceb47c64ef4cbfb214bf7f2e8ce, type: 3}
       propertyPath: m_Name
       value: Path (1)

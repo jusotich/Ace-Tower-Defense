@@ -168,7 +168,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   startHealth: 1
   damage: 1
-  moneyEarned: 1
+  moneyEarned: 25
   Spwaner: {fileID: 0}
   isArmored: 0
 --- !u!95 &917536307740870507

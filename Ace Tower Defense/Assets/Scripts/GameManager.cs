@@ -30,14 +30,14 @@ public class GameManager : MonoBehaviour
         }
         else if(round > 50)
         {
+            cash += moneyAmount / 2f;
             return;
-            cash += moneyAmount/2f;
         }
         
     }
     public void AdvanceRound()
     {
-        GetCash(1000);
+        GetCash(20);
         round++;
     }
 }

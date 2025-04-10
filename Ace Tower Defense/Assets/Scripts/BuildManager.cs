@@ -12,7 +12,6 @@ public class BuildManager : MonoBehaviour
     [SerializeField] public GameObject[] towerPrefabs;
     [SerializeField] private Collider2D mapCollider; // Reference to the map collider
 
-    private int SelectedTower = 0;
     private bool towerUpgradeOpen = false;
     private TargetingSystem activeTowerUI = null;
     private int selectedCardIndex = 0;
