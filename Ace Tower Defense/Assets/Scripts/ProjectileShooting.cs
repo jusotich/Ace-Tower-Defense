@@ -7,7 +7,7 @@ public class ProjectileShooting : MonoBehaviour
     [Header("Variabler")]
     [SerializeField] public float bulletSpeed = 5f;
     [SerializeField] public float projectileDamage = 1f;
-    private bool isArmoredPeircing = false;
+    public bool isArmoredPeircing = false;
 
     public int upgradeLevel = 0;
     public int maxUpgradeLevel = 7;
