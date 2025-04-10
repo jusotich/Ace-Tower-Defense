@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,25 +20,32 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int takenDamage)
     {
         hp -= takenDamage;
+        DIE();
+    }
+    public void DIE()
+    {
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     public void GetCash(int moneyAmount)
     {
 
-        if (round <= 50)
+        if (round > 5)
         {
-            cash += moneyAmount;
+            cash += moneyAmount/2;
             return;
         }
-        else if(round > 50)
+        else
         {
-            cash += moneyAmount / 2f;
-            return;
+            cash += moneyAmount;
         }
         
     }
     public void AdvanceRound()
     {
-        GetCash(20);
+        GetCash(200);
         round++;
     }
 }
