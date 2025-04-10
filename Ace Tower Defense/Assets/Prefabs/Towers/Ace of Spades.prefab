@@ -482,6 +482,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 13
   bps: 1
+  upgradeLevel: 0
+  maxUpgradeLevel: 10
+  baseUpgradeCost: 100
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
