@@ -50,7 +50,7 @@ public class BuildManager : MonoBehaviour
                     tower.OpenUpgradeUI();
                     towerUpgradeOpen = true;
                 }
-                return; // Stop further execution (don't build a tower)
+                return; // Stop further execution! (don't build a tower)
             }
         }
 
