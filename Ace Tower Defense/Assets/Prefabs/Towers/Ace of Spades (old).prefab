@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6734407623615182363}
   - component: {fileID: 5769351594414500555}
   m_Layer: 0
-  m_Name: Ace of Spades
+  m_Name: Ace of Spades (old)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
