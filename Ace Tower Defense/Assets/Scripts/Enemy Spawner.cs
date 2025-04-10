@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spwaner : MonoBehaviour
@@ -11,18 +10,20 @@ public class Spwaner : MonoBehaviour
 
     private int currentRoundIndex = 0;
     private bool waveIsDone = true;
-    public int enemiesAlive = 0;
+    private int enemiesAlive = 0;  // Track the number of alive enemies
 
     public GameManager gameManager;
 
     void Update()
     {
+        // Start the wave spawning when it's done and there are still rounds to go
         if (waveIsDone && currentRoundIndex < rounds.Count)
         {
             StartCoroutine(WaveSpawner());
         }
 
-        if (enemiesAlive <= 0)
+        // Wait for all enemies to die before moving to the next round
+        if (enemiesAlive <= 0 && !waveIsDone)
         {
             waveIsDone = true;
             gameManager.AdvanceRound();
@@ -51,12 +52,19 @@ public class Spwaner : MonoBehaviour
                 yield return new WaitForSeconds(currentRound.spawnRate);
             }
         }
+
+        // After all enemies are spawned, wait until they are all dead
+        yield return new WaitUntil(() => enemiesAlive == 0);
+
+        // Once all enemies are dead, proceed to the next round
+        waveIsDone = true;
+        gameManager.AdvanceRound();
+        currentRoundIndex++;
     }
 
     void SpawnEnemy(GameObject enemyPrefab)
     {
         GameObject enemyClone = Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyContainer);
-        enemiesAlive++;
 
         EnemyBehavior enemyBehavior = enemyClone.GetComponent<EnemyBehavior>();
         if (enemyBehavior != null)
@@ -67,10 +75,14 @@ public class Spwaner : MonoBehaviour
         }
 
         enemyClone.GetComponent<EnemyBasklass>()?.SetSpwaner(this);
+
+        // Increase the count of enemies alive when an enemy is spawned
+        enemiesAlive++;
     }
 
     public void EnemyDied()
     {
+        // Decrease the count of enemies alive when one dies
         enemiesAlive--;
     }
 }

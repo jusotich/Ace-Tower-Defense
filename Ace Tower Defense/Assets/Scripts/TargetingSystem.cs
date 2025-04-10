@@ -14,10 +14,10 @@ public class TargetingSystem : MonoBehaviour
     [SerializeField] public float range = 5f;
     [SerializeField] public float bps = 1f; //bullets per second
 
-    public int upgradeLevel = 0;
+    public int currentLevel = 1;
     public int maxUpgradeLevel = 10;
-
     public int baseUpgradeCost = 100;
+    public int cost;
 
     [Header("Referenser")]
     [SerializeField] private LayerMask enemyMask;
@@ -26,6 +26,8 @@ public class TargetingSystem : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private Button upgradeButton;
 
+
+    public GameManager gameManager;
     private float timeUntillFire;
     private Transform target = null;
 
@@ -34,6 +36,10 @@ public class TargetingSystem : MonoBehaviour
     {
        Handles.DrawWireDisc(transform.position, transform.forward, range);
        Handles.color = Color.magenta;
+    }
+    private void Start()
+    {
+        cost = baseUpgradeCost;
     }
 
 
@@ -105,82 +111,5 @@ public class TargetingSystem : MonoBehaviour
         {
             tower.CloseUpgradeUI();
         }
-    }
-
-    public void UpgradeRange()
-    {
-        if (upgradeLevel >= maxUpgradeLevel)
-        {
-            Debug.Log("Max upgrade level rached!");
-            return;
-        }
-
-        int cost = GetUpgradeCost();
-
-        if (!PlayerStats.TrySpendGold(cost))
-        {
-            Debug.Log("Not enough gold to upgrade!");
-            return;
-        }
-
-        range += 0.3f;
-        cost += 500;
-
-        Debug.Log($"Tower upgraded to level {upgradeLevel}! Cost: {cost}");
-    }
-
-    public static class PlayerStats
-    {
-        public static int Gold = 200;
-
-        public static bool TrySpendGold(int amount)
-        {
-            if (Gold >= amount)
-            {
-                Gold -= amount;
-                return true;
-            }
-
-            return false;
-        }
-
-        public static void AddGold(int amount)
-        {
-            Gold += amount;
-        }
-    }
-
-    public void UpgradeBPS()
-    {
-        if (upgradeLevel >= maxUpgradeLevel)
-        {
-            Debug.Log("Max upgrade level rached!");
-            return;
-        }
-
-        int cost = GetUpgradeCost();
-
-        if (!PlayerStats.TrySpendGold(cost))
-        {
-            Debug.Log("Not enough gold to upgrade!");
-            return;
-        }
-
-        bps += 1f;
-        Debug.Log($"Tower upgraded to level {upgradeLevel}! Cost: {cost}");
-    }
-    public void ChangeMaterial()
-    {
-        
-    }
-
-    public int GetUpgradeCost()
-    {
-        return baseUpgradeCost * (upgradeLevel + 1);
-    }
-
-    public bool canUpgrade()
-    {
-        return upgradeLevel < maxUpgradeLevel;
     }
 }

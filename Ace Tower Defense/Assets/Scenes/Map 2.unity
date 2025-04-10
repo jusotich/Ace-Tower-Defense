@@ -401,6 +401,7 @@ MonoBehaviour:
   towerContainer: {fileID: 115387676}
   towerPrefabs:
   - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+  mapCollider: {fileID: 0}
 --- !u!212 &737542570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1695,9 +1696,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0d913dafe1f0042a7a15badc091b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 3
-  enemyThisRound: 0
-  enemy: {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
+  rounds:
+  - enemies:
+    - enemyPrefab: {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
+      count: 20
+    spawnRate: 1
   nodes:
   - {fileID: 938476153}
   - {fileID: 1274416265}
@@ -1713,7 +1716,8 @@ MonoBehaviour:
   - {fileID: 374530206}
   - {fileID: 507929941}
   - {fileID: 178158641}
-  enemyContaier: {fileID: 27029314}
+  enemyContainer: {fileID: 0}
+  enemiesAlive: 0
   gameManager: {fileID: 2094624111}
 --- !u!4 &2094494127
 Transform:

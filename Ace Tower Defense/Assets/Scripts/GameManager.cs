@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public int hp;
     public int round;
-    public int cash;
+    public float cash;
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI roundText;
     public TextMeshProUGUI cashText;
@@ -22,7 +22,21 @@ public class GameManager : MonoBehaviour
     }
     public void GetCash(int moneyAmount)
     {
-        cash += moneyAmount;
+        if(round <= 20)
+        {
+            cash += (moneyAmount * 2) + 100;
+        }
+        else if (round <= 50)
+        {
+            cash += moneyAmount;
+            return;
+        }
+        else if(round > 50)
+        {
+            return;
+            cash += moneyAmount/2f;
+        }
+        
     }
     public void AdvanceRound()
     {

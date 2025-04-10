@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   round: 0
-  cash: 100000
+  cash: 500
   hpText: {fileID: 10350648}
   roundText: {fileID: 336134718}
   cashText: {fileID: 1936467096}
@@ -1424,7 +1424,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.94292074, y: 0.94292074, z: 9.429208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1568,6 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b04064ed07715a4b8ee09fba24c4fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerContainer: {fileID: 1484095206}
   towerPrefabs:
   - {fileID: 0}
   - {fileID: 5870191877343561799, guid: 3b7809b2cfdda4e45ac90832cc4e2294, type: 3}
@@ -1619,10 +1620,10 @@ MonoBehaviour:
   - {fileID: 579885728538098570, guid: 41395c8e7106a894287f949f1ab7f1dc, type: 3}
   - {fileID: 8434698650634175820, guid: b26d45c59803b264c81b061e55d855a6, type: 3}
   - {fileID: 1235114062857028794, guid: 1349aa9bdc5eb94418d1eae83a9e7e86, type: 3}
-  - {fileID: 4099369202845925987, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
+  - {fileID: 1887310015812011147, guid: 764885d44c1f37441a14f245a3f5917b, type: 3}
   - {fileID: 1694082194453855022, guid: 37fc5569218440143b3e1bbf25e7d197, type: 3}
   - {fileID: 6707596672922719502, guid: 1744ab0d7b26a2545982e967c9814307, type: 3}
-  towerContainer: {fileID: 1484095206}
+  mapCollider: {fileID: 960807058}
 --- !u!82 &960807060
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2652,9 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0d913dafe1f0042a7a15badc091b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 3
-  enemyThisRound: 0
-  enemy: {fileID: 7410787214318986340, guid: ba73706f50d7cff448998c028ddc1031, type: 3}
+  rounds: []
   nodes:
   - {fileID: 2315362}
   - {fileID: 264589332}
@@ -2684,7 +2683,7 @@ MonoBehaviour:
   - {fileID: 1895259995}
   - {fileID: 1107986308}
   - {fileID: 1729435084}
-  enemyContaier: {fileID: 661849674}
+  enemyContainer: {fileID: 0}
   gameManager: {fileID: 835708265}
 --- !u!4 &1543499545
 Transform:

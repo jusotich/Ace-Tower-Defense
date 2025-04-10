@@ -30,7 +30,7 @@ public class CardDeck : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (gameManager.cash > drawDeckCost)
+        if (gameManager.cash >= drawDeckCost)
         {
             gameManager.cash -= drawDeckCost;
 

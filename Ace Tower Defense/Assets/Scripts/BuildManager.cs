@@ -9,22 +9,56 @@ public class BuildManager : MonoBehaviour
     public Transform towerContainer;
 
     [Header("Referenser")]
-    [SerializeField] private GameObject[] towerPrefabs;
+    [SerializeField] public GameObject[] towerPrefabs;
     [SerializeField] private Collider2D mapCollider; // Reference to the map collider
 
     private int SelectedTower = 0;
     private bool towerUpgradeOpen = false;
     private TargetingSystem activeTowerUI = null;
+    private int selectedCardIndex = 0;
+    private bool canPlace = false;
+    private GameObject tower;
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Buildmanager: Clicked collider");
+        Debug.Log("Buildmanager: Can place tower: " + canPlace);
+        if (!canPlace) return;
+
+        GameObject towerToBuild = GetSelectedTower();
+
+        Vector2 mouseWorldPos = GetMouseWorldPosition();
+        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer);
+
+        Debug.Log("Buildmanager: " + selectedCardIndex);
+        // Efter placering – stäng av byggläget
+        canPlace = false;
+        selectedCardIndex = 0;
+    }
+
+
 
     private void Awake()
     {
         main = this;
     }
+    public void SelectTower(int cardIndex, bool allowPlacement)
+    {
+        selectedCardIndex = cardIndex;
+        canPlace = allowPlacement;
+        Debug.Log("Selected tower index: " + selectedCardIndex);
+    }
+
 
     public GameObject GetSelectedTower()
     {
-        return towerPrefabs[SelectedTower];
+        if (selectedCardIndex >= 0 && selectedCardIndex < towerPrefabs.Length)
+            return towerPrefabs[selectedCardIndex];
+
+        Debug.LogWarning("Invalid card index");
+        return towerPrefabs[0]; // fallback
     }
+
 
     void Update()
     {
