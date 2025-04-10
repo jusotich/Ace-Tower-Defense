@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1887310015812011147
+--- !u!1 &54945652516693732
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4806565468355732222}
-  - component: {fileID: 5850354387017159584}
-  - component: {fileID: 7553937059480973581}
-  - component: {fileID: 8859614791813702427}
-  - component: {fileID: -6734407623615182363}
+  - component: {fileID: 6021507076086982137}
+  - component: {fileID: 6041021891628338047}
+  - component: {fileID: 908994970596233179}
+  - component: {fileID: 8511676994703812334}
+  - component: {fileID: 2838751494847969745}
   m_Layer: 0
-  m_Name: Ace of Spades
+  m_Name: Queen of Hearts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4806565468355732222
+--- !u!4 &6021507076086982137
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887310015812011147}
+  m_GameObject: {fileID: 54945652516693732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.6, y: -0.4, z: -1}
+  m_LocalPosition: {x: 2.02, y: 1.739, z: -1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5850354387017159584
+--- !u!212 &6041021891628338047
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887310015812011147}
+  m_GameObject: {fileID: 54945652516693732}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2392495274349759094, guid: 79dd17159da10ba40911b7a0283e3a0a, type: 3}
+  m_Sprite: {fileID: -7848892554136569370, guid: 48f92fa5f4b4a7b4fb8a21e51a0e77ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,47 +90,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7553937059480973581
+--- !u!114 &908994970596233179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887310015812011147}
+  m_GameObject: {fileID: 54945652516693732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4c262d6219bc914d9b60f33755ff10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  bps: 1
+  range: 5.3
+  bps: 11
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
   projectilePrefab: {fileID: 31441499188742537, guid: 908b2feee4bc8b54ea10cc3aef37fd9a, type: 3}
-  fireingPoint: {fileID: 4806565468355732222}
---- !u!114 &8859614791813702427
+  fireingPoint: {fileID: 6021507076086982137}
+--- !u!114 &8511676994703812334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887310015812011147}
+  m_GameObject: {fileID: 54945652516693732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1788e93895ffcac40a57a2959282f0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 5
-  projectileDamage: 1
+  bulletSpeed: 25
+  projectileDamage: 6
+  isArmoredPeircing: 0
   rb: {fileID: 0}
---- !u!61 &-6734407623615182363
+--- !u!61 &2838751494847969745
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887310015812011147}
+  m_GameObject: {fileID: 54945652516693732}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1

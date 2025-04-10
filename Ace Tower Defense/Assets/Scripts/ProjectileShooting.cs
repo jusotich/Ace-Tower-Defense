@@ -6,8 +6,8 @@ public class ProjectileShooting : MonoBehaviour
 
     [Header("Variabler")]
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int projectileDamage = 1;
-    private bool isArmoredPeircing = false;
+    [SerializeField] private float projectileDamage = 1f;
+    public bool isArmoredPeircing = false;
 
     [Header("Referenser")]
     [SerializeField] private Rigidbody2D rb;

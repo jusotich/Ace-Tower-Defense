@@ -1,42 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class BuildManager : MonoBehaviour 
+public class BuildManager : MonoBehaviour
 {
     public static BuildManager main;
+
+    [SerializeField] public GameObject[] towerPrefabs;
     public Transform towerContainer;
 
-
-    [Header("Referenser")]
-    [SerializeField] private GameObject[] towerPrefabs;
-
     private GameObject tower;
+    private int selectedCardIndex = 0;
+    private bool canPlace = false;
 
-    private int SelectedTower = 0;
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Buildmanager: Clicked collider");
+        Debug.Log("Buildmanager: Can place tower: " + canPlace);
+        if (!canPlace) return;
+
+        GameObject towerToBuild = GetSelectedTower();
+
+        Vector2 mouseWorldPos = GetMouseWorldPosition();
+        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer);
+
+        Debug.Log("Buildmanager: " + selectedCardIndex);
+        // Efter placering – stäng av byggläget
+        canPlace = false;
+        selectedCardIndex = 0;
+    }
+
 
     private void Awake()
     {
         main = this;
     }
 
+    public void SelectTower(int cardIndex, bool allowPlacement)
+    {
+        selectedCardIndex = cardIndex;
+        canPlace = allowPlacement;
+        Debug.Log("Selected tower index: " + selectedCardIndex);
+    }
+
+
     public GameObject GetSelectedTower()
     {
-        return towerPrefabs[SelectedTower];
+        if (selectedCardIndex >= 0 && selectedCardIndex < towerPrefabs.Length)
+            return towerPrefabs[selectedCardIndex];
+
+        Debug.LogWarning("Invalid card index");
+        return towerPrefabs[0]; // fallback
     }
-    
-    //dodo code
-    private void OnMouseDown()
-    {
-        if (tower != null) return;
 
-        GameObject towerToBuild = GetSelectedTower();
-        Vector2 mouseWorldPos = GetMouseWorldPosition();
+    //dodo code - william
+    //Jag vet - Joachim
 
-
-        tower = Instantiate(towerToBuild, mouseWorldPos, Quaternion.identity, towerContainer); tower = null;
-    }
 
     private Vector2 GetMouseWorldPosition()
     {
