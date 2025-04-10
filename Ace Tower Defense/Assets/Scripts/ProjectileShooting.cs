@@ -10,7 +10,7 @@ public class ProjectileShooting : MonoBehaviour
     private bool isArmoredPeircing = false;
 
     public int upgradeLevel = 0;
-    public int maxUpgradeLevel = 10;
+    public int maxUpgradeLevel = 7;
 
     public int baseUpgradeCost = 100;
 
