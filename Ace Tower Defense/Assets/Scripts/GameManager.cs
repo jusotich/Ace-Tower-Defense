@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if(round <= 20)
         {
-            cash += (moneyAmount * 2) + 100;
+            cash += moneyAmount;
         }
         else if (round <= 50)
         {
@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     }
     public void AdvanceRound()
     {
+        GetCash(1000);
         round++;
     }
 }
