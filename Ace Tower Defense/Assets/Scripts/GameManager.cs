@@ -22,11 +22,8 @@ public class GameManager : MonoBehaviour
     }
     public void GetCash(int moneyAmount)
     {
-        if(round <= 20)
-        {
-            cash += moneyAmount;
-        }
-        else if (round <= 50)
+
+        if (round <= 50)
         {
             cash += moneyAmount;
             return;
