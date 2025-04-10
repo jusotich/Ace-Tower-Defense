@@ -169,6 +169,10 @@ public class TargetingSystem : MonoBehaviour
         bps += 1f;
         Debug.Log($"Tower upgraded to level {upgradeLevel}! Cost: {cost}");
     }
+    public void ChangeMaterial()
+    {
+        
+    }
 
     public int GetUpgradeCost()
     {
