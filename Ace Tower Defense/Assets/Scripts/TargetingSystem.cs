@@ -106,8 +106,6 @@ public class TargetingSystem : MonoBehaviour
         range += 0.3f;
 
         Debug.Log($"Tower upgraded! New stats -> Range {range}");
-
-        CloseUpgradeUI();
     }
 
     public void UpgradeBPS()
